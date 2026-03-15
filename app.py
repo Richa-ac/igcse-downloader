@@ -10,12 +10,20 @@ st.set_page_config(page_title="IGCSE PastPaper Downloader", layout="centered")
 
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            .stApp > header {display: none;} /* This kills the white gap */
+            /* Hides the top header bar and the red crown */
+            [data-testid="stHeader"] {display: none !important;}
+            
+            /* Hides the 'Made with Streamlit' footer */
+            footer {visibility: hidden !important;}
+            
+            /* Hides the hamburger menu (top right) */
+            #MainMenu {visibility: hidden !important;}
+            
+            /* Removes extra padding at the top so your H1 is snug */
+            .block-container {padding-top: 0rem !important;}
             </style>
             """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 SUBJECTS = {
     "0625 Physics": {"code":"0625","papers":[2,4,6]},
