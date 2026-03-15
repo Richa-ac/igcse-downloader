@@ -2,14 +2,21 @@ import streamlit as st
 import requests
 import io
 import time
-import random
 import pikepdf
 import os 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 st.set_page_config(page_title="IGCSE PastPaper Downloader", layout="centered")
 
-# 1. DATA CONFIGURATION
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            .stApp > header {display: none;} /* This kills the white gap */
+            </style>
+            """
+
 SUBJECTS = {
     "0625 Physics": {"code":"0625","papers":[2,4,6]},
     "0620 Chemistry": {"code":"0620","papers":[2,4,6]},
